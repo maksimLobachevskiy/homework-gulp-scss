@@ -22,10 +22,18 @@ const path = {
     },
 };
 
-const scss = () => {
+const styles = () => {
+    return gulp.src(path.src.scss)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(path.dist.css));
+};
 
+const cleanBuild = () => {
+    return del(".dist/");
 }
 
+exports.styles = styles;
+exports.cleanBuild = cleanBuild;
 
 
 
