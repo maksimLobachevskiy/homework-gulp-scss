@@ -1,0 +1,30 @@
+@mixin roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+/*MEDIA QUERIES*/
+@mixin small {
+    @media (min-width: #{$screen-sm}) {
+        @content;
+    }
+ }
+ 
+  @mixin medium {
+    @media (min-width: #{$screen-md}) {
+        @content;
+    }
+ }
+ 
+ @mixin large {
+    @media (min-width: #{$screen-lg}) {
+        @content;
+    }
+ }
+
+ /*FLEX*/
+ @mixin flex($display, $wrap, $justify, $align) {
+     display: $display;
+     flex-wrap: $wrap;
+     justify-content: $justify;
+     align-items: $align;
+ }

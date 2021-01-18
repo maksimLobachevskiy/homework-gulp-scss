@@ -14,9 +14,9 @@ const { src, dest, series, parallel, watch } = require("gulp");
 
 const path = {
     src: {
-        scss: "./src/scss/style.scss",
-        js: "./src/js/script.js",
-        img: "./src/img/**/*.{jpg,png,gif,svg,ico,webp}",
+        scss: "src/scss/**/*.scss",
+        js: "src/js/**/*.js",
+        img: "src/img/**/*.{jpg,png,gif,svg,ico,webp}",
         html: "./index.html",
     },
     dist: {
@@ -43,8 +43,13 @@ const scripts = () => {
     return gulp.src(path.src.js)
         .pipe(uglify())
         .pipe(rename('scripts.min.js'))
-        .pipe(gulp.dest(path.dist.js));
+        .pipe(gulp.dest(path.dist.js))
+        .pipe(browserSync.stream());
 };
+
+//const images = () => {
+
+//};
 
 const cleanBuild = () => {
     return del("dist/");
@@ -53,9 +58,11 @@ const cleanBuild = () => {
 const watcher = () => {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./",
+            tunnel: true
         }
     });
+    gulp.watch(path.src.js, scripts).on('change', browserSync.reload);
     gulp.watch(path.src.scss, styles).on('change', browserSync.reload);
     gulp.watch(path.src.html).on('change', browserSync.reload);
 };
@@ -63,6 +70,7 @@ const watcher = () => {
 
 exports.styles = styles;
 exports.scripts = scripts;
+//exports.images = images;
 exports.cleanBuild = cleanBuild;
 exports.build = series(cleanBuild, parallel(styles, scripts));
 exports.dev = watcher;
