@@ -64,6 +64,5 @@ const watcher = () => {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.cleanBuild = cleanBuild;
-exports.watcher = watcher;
-
 exports.build = series(cleanBuild, parallel(styles, scripts));
+exports.dev = watcher;
