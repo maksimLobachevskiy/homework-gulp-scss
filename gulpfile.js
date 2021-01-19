@@ -41,15 +41,26 @@ const styles = () => {
 
 const scripts = () => {
     return gulp.src(path.src.js)
+        .pipe(concat('scripts.js'))
         .pipe(uglify())
         .pipe(rename('scripts.min.js'))
         .pipe(gulp.dest(path.dist.js))
         .pipe(browserSync.stream());
 };
 
-//const images = () => {
+const images = () =>
+    src(path.src.img)
+        .pipe(
+            imagemin({
+                progressive: true,
+                svgoPlugins: [{ removeViewBox: false }],
+                interlaced: true,
+                optimizationLevel: 3,
+            })
+        )
+        .pipe(dest(path.dist.img))
+        .pipe(browserSync.stream());
 
-//};
 
 const cleanBuild = () => {
     return del("dist/");
@@ -65,12 +76,13 @@ const watcher = () => {
     gulp.watch(path.src.js, scripts).on('change', browserSync.reload);
     gulp.watch(path.src.scss, styles).on('change', browserSync.reload);
     gulp.watch(path.src.html).on('change', browserSync.reload);
+    gulp.watch(path.src.img, images).on('change', browserSync.reload);
 };
 
 
 exports.styles = styles;
 exports.scripts = scripts;
-//exports.images = images;
+exports.images = images;
 exports.cleanBuild = cleanBuild;
-exports.build = series(cleanBuild, parallel(styles, scripts));
+exports.build = series(cleanBuild, parallel(styles, scripts, images));
 exports.dev = watcher;
