@@ -1,0 +1,82 @@
+.header {
+    margin-top: 23px;
+    display: flex;
+    justify-content: flex-end;
+    
+    &__menu {
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include medium {
+            @include flex(flex, nowrap, center, center);
+        }
+    }
+    
+    &__btn {
+        background-color: $black;
+        padding: 17px 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        @include medium {
+            display: none;
+        }
+    }
+
+    &__nav {
+        @include medium {
+           width: 100%;
+        }
+    }
+}
+
+.navmenu {
+    
+    &__item {
+        font-size: 11px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: $darkGrey;
+        
+        @include medium {
+        padding: 0 17px;
+    }
+        @include large {
+            padding: 16px 34px;
+         }
+    }
+}
+
+.burger {
+    outline: none;
+    border: none;
+    background-color: $white;
+    height: 2px;
+    width: 17px;
+    position: relative;
+    
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        height: 2px;
+        width: 17px;
+        top: -5px;
+        left: 0;
+    }
+    
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        height: 2px;
+        width: 17px;
+        bottom: -5px;
+        left: 0;
+    }
+}
