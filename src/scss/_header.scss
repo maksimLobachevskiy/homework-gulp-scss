@@ -1,146 +1,152 @@
 .header {
-    margin-top: 23px;
-    display: flex;
-    justify-content: flex-end;
-    
-    &__menu {
-        display: none;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        
-        @include medium {
-            @include flex(flex, nowrap, center, center);
-        }
-    }
-    
-    &__btn {
-        background-color: $black;
-        padding: 17px 14px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+  margin-top: 23px;
+  display: flex;
+  justify-content: flex-end;
 
-        @include medium {
-            display: none;
-        }
-    }
+  &__menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-    &__nav {
-        @include medium {
-           width: 100%;
-        }
+    @include medium {
+      @include flex(flex, nowrap, center, center);
     }
+  }
+
+  &__btn {
+    @include flex-center;
+    background-color: $black;
+    padding: 17px 14px;
+    cursor: pointer;
+
+    @include medium {
+      display: none;
+    }
+  }
+
+  &__nav {
+    @include medium {
+      width: 100%;
+    }
+  }
 }
 
 .navmenu {
-    &__item {
-        font-size: 11px;
-        line-height: 22px;
-        text-transform: uppercase;
-        color: $darkGrey;
-       
-        &--active {
-            color: $torqoise;
-        }
-        @include medium {
-        padding: 0 17px;
+  &__item {
+    font-size: 11px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $darkGrey;
+
+    &--active {
+      color: $torqoise;
     }
-        @include large {
-            padding: 16px 34px;
-         }
+
+    &:hover {
+
+      color: $torqoise;
+
     }
+
+    @include medium {
+      padding: 0 17px;
+    }
+    @include large {
+      padding: 16px 34px;
+    }
+  }
 }
 
 .burger {
-        position: relative;
-        background-color: $black;
-        width: 44px;
-        height: 37px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        outline: none;
-        border: none;
+  position: relative;
+  background-color: $black;
+  width: 44px;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
 
-    & span {
-        display: block;
-        position: absolute;
+  & span {
+    display: block;
+    position: absolute;
     background-color: $white;
     height: 2px;
     width: 17px;
-    
+
     &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        background-color: #fff;
-        height: 2px;
-        width: 17px;
-        top: -5px;
-        left: 0;
-        transition: 0.1s ease-in-out;
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #fff;
+      height: 2px;
+      width: 17px;
+      top: -5px;
+      left: 0;
+      transition: 0.1s ease-in-out;
     }
-    
+
     &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        background-color: #fff;
-        height: 2px;
-        width: 17px;
-        bottom: -5px;
-        left: 0;
-        transition: 0.1s ease-in-out;
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #fff;
+      height: 2px;
+      width: 17px;
+      bottom: -5px;
+      left: 0;
+      transition: 0.1s ease-in-out;
     }
-    }
-    @include medium {
-        display: none;
-    }
-    
+  }
+
+  @include medium {
+    display: none;
+  }
+
 }
 
 .burger.burger-active {
-    
-    & span {
-        background: 0 0;
-       
-        &::before {
-            top: 0;
-            transform: rotate(-45deg);
-            transition-property: top,transform,-webkit-transform;
-        }
-    
-        &::after {
-            bottom: 0;
-            transform: rotate(45deg);
-            transition-property: bottom,transform,-webkit-transform;
-        }
+
+  & span {
+    background: 0 0;
+
+    &::before {
+      top: 0;
+      transform: rotate(-45deg);
+      transition-property: top, transform, -webkit-transform;
     }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(45deg);
+      transition-property: bottom, transform, -webkit-transform;
+    }
+  }
 }
 
 
 .active {
-        display: block;
-        position:absolute;
-        background-color: $menuBG;
-        top: 59px;
-        width: 183px;
-        right: 25px;
-        overflow: auto;
-        height: 240px;
-     
-.navmenu {
-    &__item {
-        padding: 4px 0 6px 13px;
-    
+  display: block;
+  position: absolute;
+  background-color: $menuBG;
+  top: 60px;
+  width: 183px;
+  right: 25px;
+  overflow: auto;
+  height: 225px;
 
-    &:hover {
+  .navmenu {
+    &__item {
+      padding: 4px 0 6px 13px;
+
+
+      &:hover {
         background-color: $menuitemBG;
-            }
-        }
+      }
     }
+  }
 
 }
