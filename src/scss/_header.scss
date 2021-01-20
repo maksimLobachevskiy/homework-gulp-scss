@@ -8,6 +8,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        
         @include medium {
             @include flex(flex, nowrap, center, center);
         }
@@ -34,13 +35,15 @@
 }
 
 .navmenu {
-    
     &__item {
         font-size: 11px;
         line-height: 22px;
         text-transform: uppercase;
         color: $darkGrey;
-        
+       
+        &--active {
+            color: $torqoise;
+        }
         @include medium {
         padding: 0 17px;
     }
@@ -51,12 +54,23 @@
 }
 
 .burger {
-    outline: none;
-    border: none;
+        position: relative;
+        background-color: $black;
+        width: 44px;
+        height: 37px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+        border: none;
+
+    & span {
+        display: block;
+        position: absolute;
     background-color: $white;
     height: 2px;
     width: 17px;
-    position: relative;
     
     &:before {
         content: "";
@@ -67,6 +81,7 @@
         width: 17px;
         top: -5px;
         left: 0;
+        transition: 0.1s ease-in-out;
     }
     
     &:after {
@@ -78,5 +93,54 @@
         width: 17px;
         bottom: -5px;
         left: 0;
+        transition: 0.1s ease-in-out;
     }
+    }
+    @include medium {
+        display: none;
+    }
+    
+}
+
+.burger.burger-active {
+    
+    & span {
+        background: 0 0;
+       
+        &::before {
+            top: 0;
+            transform: rotate(-45deg);
+            transition-property: top,transform,-webkit-transform;
+        }
+    
+        &::after {
+            bottom: 0;
+            transform: rotate(45deg);
+            transition-property: bottom,transform,-webkit-transform;
+        }
+    }
+}
+
+
+.active {
+        display: block;
+        position:absolute;
+        background-color: $menuBG;
+        top: 59px;
+        width: 183px;
+        right: 25px;
+        overflow: auto;
+        height: 240px;
+     
+.navmenu {
+    &__item {
+        padding: 4px 0 6px 13px;
+    
+
+    &:hover {
+        background-color: $menuitemBG;
+            }
+        }
+    }
+
 }
