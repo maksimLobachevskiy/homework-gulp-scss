@@ -7,6 +7,9 @@
     font-weight: 700;
     color: $darkGrey;
     text-transform: uppercase;
+    @include medium {
+      font-size: 16px;
+    }
   }
 
   @include medium {
@@ -65,6 +68,7 @@
     padding-top: 10px;
     @include medium {
       padding-top: 0;
+      font-size: 16px;
     }
   }
 

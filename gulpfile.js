@@ -23,6 +23,7 @@ const path = {
         css: "dist/css/",
         js: "dist/js/",
         img: "dist/img/",
+        icons: "dist/assets/webfonts/",
     },
 };
 
@@ -33,7 +34,9 @@ const styles = () => {
             overrideBrowserslist:  ['last 2 versions'],
             cascade: false
         }))
-        .pipe(cleanCSS())
+        .pipe(cleanCSS({
+            level: 2
+        }))
         .pipe(rename('style.min.css'))
         .pipe(gulp.dest(path.dist.css))
         .pipe(browserSync.stream());
@@ -48,8 +51,8 @@ const scripts = () => {
         .pipe(browserSync.stream());
 };
 
-const images = () =>
-    src(path.src.img)
+const images = () => {
+    return src(path.src.img)
         .pipe(
             imagemin({
                 progressive: true,
@@ -60,17 +63,16 @@ const images = () =>
         )
         .pipe(dest(path.dist.img))
         .pipe(browserSync.stream());
-
+};
 
 const cleanBuild = () => {
     return del("dist/");
-}
+};
 
 const watcher = () => {
     browserSync.init({
         server: {
             baseDir: "./",
-            tunnel: true
         }
     });
     gulp.watch(path.src.js, scripts).on('change', browserSync.reload);
