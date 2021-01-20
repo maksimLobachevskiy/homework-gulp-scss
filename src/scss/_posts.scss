@@ -1,0 +1,118 @@
+.posts {
+  padding-top: 38px;
+  padding-bottom: 38px;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+    color: $darkGrey;
+    text-transform: uppercase;
+  }
+
+  @include medium {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__list {
+    @include large {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+
+  @include large {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+
+}
+
+.list {
+  &__col {
+    @include large {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 45%;
+    }
+  }
+
+  &__col2 {
+    & li {
+      &:last-of-type {
+        display: none;
+        @include medium {
+          @include flex(flex, nowrap, space-between, flex-start);
+        }
+      }
+    }
+  }
+}
+
+.item-posts {
+  padding-top: 23px;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+    color: $darkGrey;
+    line-height: 30px;
+    margin: 0;
+    padding-top: 10px;
+    @include medium {
+      padding-top: 0;
+    }
+  }
+
+  &__link {
+    &:hover {
+      color: $torqoise;
+    }
+  }
+
+  &__text {
+    display: none;
+    @include medium {
+      display: block;
+      padding-top: 13px;
+      font-size: 14px;
+      line-height: 26px;
+      color: $grey;
+    }
+  }
+
+  &__img {
+    @include medium {
+      padding-right: 20px;
+    }
+  }
+
+  @include medium {
+    @include flex(flex, nowrap, space-between, flex-start);
+    width: 555px;
+  }
+}
+
+.item-meta {
+  font-size: 11px;
+  line-height: 20px;
+  color: $lightGrey;
+  @include flex(flex, nowrap, flex-start, flex-start);
+
+  &__sep {
+    padding: 0 5px 0 5px;
+  }
+
+  &__author:hover, &__comments:hover {
+    color: $darkGrey;
+    text-decoration: none;
+  }
+
+  @include medium {
+    font-size: 12px;
+  }
+}
