@@ -1,0 +1,17 @@
+.hero {
+
+    padding-top: 23px;
+    &__img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    @include medium {
+        padding-top: 28px;
+    }
+
+    @include large {
+        padding-top: 34px;
+    }
+    
+}
