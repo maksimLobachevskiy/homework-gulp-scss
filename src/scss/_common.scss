@@ -1,17 +1,27 @@
 @import "typography";
 
 * {
-    box-sizing: border-box;
-  }
-  
+  box-sizing: border-box;
+}
+
 
 body {
-    @include roboto;
+  @include roboto;
 }
 
 .container {
-    width: 100%;
-    max-width: 1170px;
-    padding: 0 25px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1170px;
+  padding: 0 25px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: $darkGrey;
+  text-transform: uppercase;
+  @include medium {
+    font-size: 16px;
+  }
 }
