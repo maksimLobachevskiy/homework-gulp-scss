@@ -40,11 +40,16 @@
     @include large {
       display: flex;
       flex-direction: column;
-      flex-basis: 45%;
+      flex-basis: 50%;
     }
   }
 
   &__col2 {
+    @include large {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 50%;
+    }
     & li {
       &:last-of-type {
         display: none;
@@ -57,7 +62,7 @@
 }
 
 .item-posts {
-  padding-top: 23px;
+  padding-top: 32px;
 
   &__title {
     font-size: 14px;
@@ -80,7 +85,7 @@
 
   &__text {
     display: none;
-    @include medium {
+    @include small {
       display: block;
       padding-top: 13px;
       font-size: 14px;
@@ -90,14 +95,17 @@
   }
 
   &__img {
-    @include medium {
+    @include small {
       padding-right: 20px;
     }
   }
 
-  @include medium {
+  @include small {
     @include flex(flex, nowrap, space-between, flex-start);
     width: 555px;
+  }
+  @include large {
+    width: 95%;
   }
 }
 

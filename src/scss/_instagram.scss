@@ -37,7 +37,7 @@
   }
 
   &__list {
-    @include medium {
+    @include small {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
 
@@ -54,7 +54,6 @@
 
   &__item {
     display: none;
-    max-width: 301px;
     width: 100%;
     height: auto;
 
@@ -66,14 +65,14 @@
       display: none;
     }
 
-    @include medium {
+    @include small {
       display: block;
       width: 100%;
       height: auto;
     }
 
     &:last-child {
-      @include medium {
+      @include small {
         display: none;
       }
 

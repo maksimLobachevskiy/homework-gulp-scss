@@ -1,5 +1,5 @@
 $(window).resize(function () {
-    if ($(window).width() <= 767) {
+    if ($(window).width() <= 575) {
         $('.photos__item').on('click', function () {
             if ($('.show').next('.photos__item').length) {
                 $('.show').removeClass('show')
